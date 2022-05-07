@@ -51,3 +51,12 @@ nav li a {
   color: grey;
   transition: all 0.3s ease-out;
 }
+
+ul {
+  list-style: none;
+}
+
+li,
+a {
+  color: #fff;
+}

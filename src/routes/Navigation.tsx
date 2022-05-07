@@ -31,9 +31,13 @@ const Navigation = () => {
           </nav>
 
           <Routes>
-            {routes.map(({ name, path, Component }) => (
-              <Route key={name} path={path} element={<Component />} />
-            ))}
+            {routes.map(({ name, path, Component }) =>
+              path === "lazyload" ? (
+                <Route key={name} path={`${path}/*`} element={<Component />} />
+              ) : (
+                <Route key={name} path={path} element={<Component />} />
+              )
+            )}
             <Route
               path="*"
               element={<Navigate to={routes[0].path} replace />}
