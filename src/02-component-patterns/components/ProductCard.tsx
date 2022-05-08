@@ -1,40 +1,24 @@
 import { useProduct } from "../hooks";
+
 import styles from "../styles/styles.module.css";
 
-// import noImage from "../assets/no-image.png";
+import { Provider } from "../context/ProductContext";
+import { ProductCardProps } from "../interfaces";
 
-const ProductCard = () => {
+const ProductCard = ({ children, product }: ProductCardProps) => {
   const { counter, handleIncrementOrDecrement } = useProduct();
 
   return (
-    <div className={styles.productCard}>
-      <img
-        src="./src/coffee-mug.png"
-        alt="Coffee Mug"
-        className={styles.productImg}
-      />
-      {/* <img src={noImage} alt="No Image" className={styles.productImg} /> */}
-
-      <span className={styles.productDescription}>Coffee Mug</span>
-
-      <div className={styles.buttonsContainer}>
-        <button
-          className={styles.buttonMinus}
-          onClick={() => handleIncrementOrDecrement(-1)}
-        >
-          -
-        </button>
-
-        <div className={styles.countLabel}>{counter}</div>
-
-        <button
-          className={styles.buttonAdd}
-          onClick={() => handleIncrementOrDecrement(+1)}
-        >
-          +
-        </button>
-      </div>
-    </div>
+    <Provider
+      value={{
+        counter,
+        handleIncrementOrDecrement,
+        product,
+        styles,
+      }}
+    >
+      <div className={styles.productCard}>{children}</div>;
+    </Provider>
   );
 };
 
