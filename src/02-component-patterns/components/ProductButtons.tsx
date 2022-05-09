@@ -1,15 +1,22 @@
-import { FC, useContext } from "react";
+import { useContext, CSSProperties } from "react";
 
 import { ProductContext } from "../context/ProductContext";
 
-const ProductButtons = () => {
+export interface Props {
+  className?: string;
+  style?: CSSProperties;
+  buttonsStyle?: CSSProperties;
+}
+
+const ProductButtons = ({ className, style, buttonsStyle }: Props) => {
   const { handleIncrementOrDecrement, counter, styles } =
     useContext(ProductContext);
 
   return (
-    <div className={styles.buttonsContainer}>
+    <div className={`${styles.buttonsContainer} ${className}`} style={style}>
       <button
         className={styles.buttonMinus}
+        style={buttonsStyle}
         onClick={() => handleIncrementOrDecrement(-1)}
       >
         -
@@ -19,6 +26,7 @@ const ProductButtons = () => {
 
       <button
         className={styles.buttonAdd}
+        style={buttonsStyle}
         onClick={() => handleIncrementOrDecrement(+1)}
       >
         +
