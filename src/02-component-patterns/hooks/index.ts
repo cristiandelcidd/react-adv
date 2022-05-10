@@ -1,3 +1,4 @@
-import useProduct from './useProduct'
+import useProduct from "./useProduct";
+import useShoppingCart from "./useShoppingCart";
 
-export {useProduct}
+export { useProduct, useShoppingCart };
