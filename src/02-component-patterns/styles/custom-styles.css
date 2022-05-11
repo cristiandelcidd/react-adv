@@ -27,3 +27,9 @@
   right: 10px;
   top: 10px;
 }
+
+button:disabled {
+  color: #9c9c9c;
+  border-color: #9c9c9c;
+  cursor: not-allowed;
+}

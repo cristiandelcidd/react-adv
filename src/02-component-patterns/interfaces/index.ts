@@ -14,6 +14,7 @@ export interface ProductContextProps {
   product: Product;
   styles: any;
   handleIncrementOrDecrement: (value: number) => void;
+  maxCount?: number;
 }
 
 export interface ProductCardHOCProps {
@@ -34,4 +35,19 @@ export interface ProductInCart extends Product {
 
 export interface ShoppingCart {
   [key: string]: ProductInCart;
+}
+
+export interface InitialValues {
+  count?: number;
+  maxCount?: number;
+}
+
+export interface ProductCardHandlers {
+  count: number;
+  isMaxCountReached: boolean;
+  maxCount?: number;
+  product: Product;
+
+  handleIncrementOrDecrement: (value: number) => void;
+  reset: () => void;
 }
